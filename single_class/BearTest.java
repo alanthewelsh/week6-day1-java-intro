@@ -37,4 +37,22 @@ public class BearTest {
   public void bellyStartsEmpty(){
     assertEquals(0, bear.foodCount());
   }
+  @Test
+  public void canEatSalmon(){
+    bear.eat(salmon);
+    assertEquals(1, bear.foodCount());
+  }
+  @Test
+  public void cannotEatSalmonWhenBellyFull(){
+    for (int i = 0; i < 10; i++ ) {
+      bear.eat(salmon);
+    }
+    assertEquals(5, bear.foodCount());
+  }
+  @Test
+  public void shouldEmptyBellyAferSleeping(){
+    bear.eat(salmon);
+    bear.sleep();
+    assertEquals(0, bear.foodCount());
+  }
 }

@@ -37,4 +37,19 @@ class Bear{
     }
     return count;
   }
+  public void eat(Salmon salmon){
+    if(bellyIsFull()){
+      return;
+    }
+    int foodCount = foodCount();
+    belly[foodCount] = salmon;
+  }
+  public boolean bellyIsFull() {
+    return foodCount() == belly.length;
+  }
+  public void sleep(){
+    for ( int i = 0; i < belly.length; i++) {
+      belly[i] = null;
+    }
+  }
 }
